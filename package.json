@@ -1,6 +1,6 @@
 {
   "name": "strapi-plugin-teaser",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "This is the description of the plugin.",
   "strapi": {
     "name": "teaser",
@@ -27,11 +27,11 @@
     "typescript": "5.0.4"
   },
   "peerDependencies": {
+    "@strapi/strapi": "^4.x",
     "react": "^17.0.0 || ^18.0.0",
     "react-dom": "^17.0.0 || ^18.0.0",
     "react-router-dom": "^5.3.4",
-    "styled-components": "^5.3.6",
-    "@strapi/strapi": "^4.x"
+    "styled-components": "^5.3.6"
   },
   "author": {
     "name": "A Strapi developer"
