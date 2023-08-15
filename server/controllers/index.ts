@@ -1,5 +1,7 @@
 import teaser from './teaser';
+import settings from './settings';
 
 export default {
-    teaser
+    teaser,
+    settings
 };

@@ -11,6 +11,7 @@
     "@strapi/design-system": "^1.6.3",
     "@strapi/helper-plugin": "^4.6.0",
     "@strapi/icons": "^1.6.3",
+    "path": "^0.12.7",
     "prop-types": "^15.7.2"
   },
   "devDependencies": {
@@ -29,7 +30,8 @@
     "react": "^17.0.0 || ^18.0.0",
     "react-dom": "^17.0.0 || ^18.0.0",
     "react-router-dom": "^5.3.4",
-    "styled-components": "^5.3.6"
+    "styled-components": "^5.3.6",
+    "@strapi/strapi": "^4.x"
   },
   "author": {
     "name": "A Strapi developer"

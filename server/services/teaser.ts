@@ -2,6 +2,7 @@ import { GetContentType, Teaser } from '../types';
 import { Strapi } from '@strapi/strapi';
 import { ContentType, ContentTypeKind } from '@strapi/strapi/lib/types/core/schemas';
 import teaser from '../components/teaser.json';
+import teasers from '../components/teasers.json';
 // @ts-ignore, does have exported member errors.
 import { errors } from '@strapi/utils';
 
@@ -96,24 +97,34 @@ export default ({ strapi }: { strapi: Strapi }) => ({
     async createTeaserComponent() {
         const contentTypes = strapi.contentTypes as { [key: string]: ContentType };
 
-        if (contentTypes['shared.teaser']) {
-            return null;
-        }
+        // console.log(contentTypes)
 
-        try {
-            const res = await strapi.plugin('content-type-builder').services.components.createComponent({
-                component: {
-                    category: 'shared',
-                    displayName: teaser.info.displayName,
-                    icon: teaser.info.icon,
-                    attributes: teaser.attributes
-                }
-            });
+        // if (contentTypes['shared.teaser'] && contentTypes['shared.teasers']) {
+        //     return null;
+        // }
 
-            return res;
-        } catch (error) {
-            console.log(error);
-        }
+        // try {
+        //     const res = await strapi.plugin('content-type-builder').services.components.createComponent({
+        //         component: {
+        //             category: 'shared',
+        //             displayName: teasers.info.displayName,
+        //             icon: teasers.info.icon,
+        //             attributes: teasers.attributes
+        //         },
+        //         components: [
+        //             {
+        //                 category: 'shared',
+        //                 displayName: teaser.info.displayName,
+        //                 icon: teaser.info.icon,
+        //                 attributes: teaser.attributes
+        //             }
+        //         ]
+        //     });
+
+        //     return res;
+        // } catch (error) {
+        //     console.log(error);
+        // }
     },
     async getTeaser(uid: string, id: number, kind?: ContentTypeKind, slug?: string): Promise<Teaser | null> {
         if (!uid.includes('api::')) {

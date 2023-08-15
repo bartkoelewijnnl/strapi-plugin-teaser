@@ -16,3 +16,12 @@ export interface Teaser {
         url: string;
     };
 }
+
+export interface Setting {
+    slugPrefix: string;
+    kind: ContentTypeKind;
+}
+
+export interface Settings {
+    [key: string]: Setting;
+}

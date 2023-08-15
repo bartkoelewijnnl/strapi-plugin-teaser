@@ -5,6 +5,7 @@ import TeaserComponent from '../Teaser';
 import ComboboxTeasers from '../ComboboxTeasers';
 import { GetContentType } from '../../../../server/types';
 import { ContentTypeKind } from '@strapi/strapi/lib/types/core/schemas';
+import { TeaserFieldValue } from '../../types';
 
 interface TeaserFieldProps {
     value?: string | null;
@@ -16,12 +17,6 @@ const getKind = (contentTypes: GetContentType[], uid: string): ContentTypeKind =
     return contentTypes.find((contentType) => contentType.uid === uid)?.kind ?? 'collectionType';
 };
 
-export type TeaserFieldValue =
-    | {
-          contentTypes: { [uid: string]: number[] };
-      }
-    | null
-    | undefined;
 
 const TeaserField = ({ value: initialValue, name, onChange }: TeaserFieldProps) => {
     const value: TeaserFieldValue = useMemo(() => initialValue && JSON.parse(initialValue), [initialValue]);

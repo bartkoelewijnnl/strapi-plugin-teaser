@@ -1,0 +1,18 @@
+{
+    "info": {
+        "displayName": "Teaser collection",
+        "icon": "eye"
+    },
+    "options": {},
+    "attributes": {
+        "teasers": {
+            "pluginOptions": {
+                "i18n": {
+                    "localized": true
+                }
+            },
+            "type": "customField",
+            "customField": "plugin::teaser.teaser"
+        }
+    }
+}

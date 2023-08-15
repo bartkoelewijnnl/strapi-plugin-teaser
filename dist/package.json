@@ -1,6 +1,6 @@
 {
-    "name": "teaser",
-    "version": "0.0.0",
+    "name": "strapi-plugin-teaser",
+    "version": "0.0.1",
     "description": "This is the description of the plugin.",
     "strapi": {
         "name": "teaser",
@@ -11,6 +11,8 @@
         "@strapi/design-system": "^1.6.3",
         "@strapi/helper-plugin": "^4.6.0",
         "@strapi/icons": "^1.6.3",
+        "@strapi/strapi": "^4.12.4",
+        "path": "^0.12.7",
         "prop-types": "^15.7.2"
     },
     "devDependencies": {

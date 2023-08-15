@@ -1,5 +1,5 @@
 import { useFetchClient } from '@strapi/helper-plugin';
-import { GetContentType, Teaser } from '../../../server/types';
+import { GetContentType, Settings, Teaser } from '../../../server/types';
 import pluginId from '../pluginId';
 import { ContentTypeKind } from '@strapi/strapi/lib/types/core/schemas';
 import { useGet } from './useGet';
@@ -22,16 +22,28 @@ const useApi = () => {
         return useGet<GetContentType[]>(`/${pluginId}/content-types`);
     };
 
-    // TODO any
+    const fetchSettings = (): LoadingModel<Settings> => {
+        return useGet<Settings>(`/${pluginId}/settings`);
+    };
+
+    // TODO diff type any
     const createTeaserComponent = async (): Promise<any> => {
         return (await post(`/${pluginId}/component`, {})).data;
+    };
+
+    const saveSettings = async (settings: Settings): Promise<Settings> => {
+        return (await post(`/${pluginId}/settings`, settings)).data;
     };
 
     return {
         fetchContentTypes,
         fetchTeasers,
         fetchTeaser,
-        createTeaserComponent
+        createTeaserComponent,
+
+        // Settings:
+        fetchSettings,
+        saveSettings
     };
 };
 

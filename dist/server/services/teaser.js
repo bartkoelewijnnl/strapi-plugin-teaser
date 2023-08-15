@@ -1,9 +1,5 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-const teaser_json_1 = __importDefault(require("../components/teaser.json"));
 // @ts-ignore, does have exported member errors.
 const utils_1 = require("@strapi/utils");
 const FIELDS = [];
@@ -75,23 +71,31 @@ exports.default = ({ strapi }) => ({
     },
     async createTeaserComponent() {
         const contentTypes = strapi.contentTypes;
-        if (contentTypes['shared.teaser']) {
-            return null;
-        }
-        try {
-            const res = await strapi.plugin('content-type-builder').services.components.createComponent({
-                component: {
-                    category: 'shared',
-                    displayName: teaser_json_1.default.info.displayName,
-                    icon: teaser_json_1.default.info.icon,
-                    attributes: teaser_json_1.default.attributes
-                }
-            });
-            return res;
-        }
-        catch (error) {
-            console.log(error);
-        }
+        // console.log(contentTypes)
+        // if (contentTypes['shared.teaser'] && contentTypes['shared.teasers']) {
+        //     return null;
+        // }
+        // try {
+        //     const res = await strapi.plugin('content-type-builder').services.components.createComponent({
+        //         component: {
+        //             category: 'shared',
+        //             displayName: teasers.info.displayName,
+        //             icon: teasers.info.icon,
+        //             attributes: teasers.attributes
+        //         },
+        //         components: [
+        //             {
+        //                 category: 'shared',
+        //                 displayName: teaser.info.displayName,
+        //                 icon: teaser.info.icon,
+        //                 attributes: teaser.attributes
+        //             }
+        //         ]
+        //     });
+        //     return res;
+        // } catch (error) {
+        //     console.log(error);
+        // }
     },
     async getTeaser(uid, id, kind, slug) {
         if (!uid.includes('api::')) {
